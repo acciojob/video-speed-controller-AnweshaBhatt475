@@ -1,12 +1,13 @@
 // Select elements
 const player = document.querySelector('.player');
-const video = player.querySelector('.viewer');
+const video = player.querySelector('.player__video');
 const progress = player.querySelector('.progress');
 const progressFilled = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const volumeSlider = player.querySelector('input[name="volume"]');
 const speedSlider = player.querySelector('input[name="playbackRate"]');
-const skipButtons = player.querySelectorAll('.skip');
+const rewindButton = player.querySelector('.rewind');
+const skipButton = player.querySelector('.skip');
 
 // Toggle play/pause
 function togglePlay() {
@@ -31,6 +32,11 @@ function handleVolume() {
 // Handle playback speed
 function handlePlaybackSpeed() {
   video.playbackRate = this.value;
+}
+
+// Handle rewinding
+function rewind() {
+  video.currentTime += parseFloat(this.dataset.skip);
 }
 
 // Handle skipping
@@ -61,7 +67,8 @@ toggle.addEventListener('click', togglePlay);
 volumeSlider.addEventListener('input', handleVolume);
 speedSlider.addEventListener('input', handlePlaybackSpeed);
 
-skipButtons.forEach(button => button.addEventListener('click', skip));
+rewindButton.addEventListener('click', rewind);
+skipButton.addEventListener('click', skip);
 
 let isMouseDown = false;
 progress.addEventListener('click', scrub);
