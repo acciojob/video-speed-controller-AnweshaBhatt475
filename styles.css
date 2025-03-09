@@ -1,2 +1,58 @@
+.player {
+  max-width: 750px;
+  margin: 20px auto;
+  background: #000;
+  border-radius: 5px;
+  overflow: hidden;
+}
 
-/* Your CSS Code here. */
+.viewer {
+  width: 100%;
+  max-height: 430px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #333;
+}
+
+.progress {
+  flex: 1;
+  background: #555;
+  cursor: pointer;
+  margin-right: 10px;
+  height: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.progress__filled {
+  width: 0;
+  height: 100%;
+  background: #f00;
+  transition: width 0.1s;
+  border-radius: 5px;
+}
+
+.player__button,
+.player__slider {
+  margin: 0 5px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.player__slider {
+  max-width: 100px;
+}
+
+.player__button:hover,
+.player__slider:hover {
+  background: #666;
+}
